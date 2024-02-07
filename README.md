@@ -5,7 +5,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 First, run the development server:
 
 Step 1 = npm install
+
 Step 2 = Create your project Database on Convex and Clerk Account. And get NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY and CLERK_SECRET_KEY 
+
 Step 3 = npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
