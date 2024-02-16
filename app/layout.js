@@ -7,19 +7,19 @@ import { ConvexClientProvider } from '@/components/providers/ConvexProvider';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'DocLinker',
-  description: 'The connected workspace DocLinker',
+  title: 'CloudNote Pro',
+  description: 'CloudNote Pro',
   icons: {
     icon: [
       {
         media: "(prefers-color-scheme: light)",
-        url: "/logo.png",
-        href: "/logo.png",
+        url: "/CNMS.jpg",
+        href: "/CNMS.jpg",
       },
       {
         media: "(prefers-color-scheme: dark)",
-        url: "/logo-dark.png",
-        href: "/logo-dark.png",
+        url: "/Dark-hero1.png",
+        href: "/Dark-hero1.png",
       },
     ],
   },

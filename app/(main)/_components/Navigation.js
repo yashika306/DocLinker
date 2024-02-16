@@ -123,7 +123,7 @@ const Navigation = () => {
         <UserItem />
         <Item label="Search" icon={Search} isSearch />
         <Item label="Settings" icon={Settings} />
-        <Item  label="New Document" icon={PlusCircle} />
+        <Item  label="New Page" icon={PlusCircle} />
         </div>
         <div
           onMouseDown={handleMouseDown}
