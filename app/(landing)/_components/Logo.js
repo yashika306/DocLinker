@@ -12,20 +12,20 @@ const Logo = () => {
   return (
     <div className='hidden md:flex items-center gap-x-2 pl-2 pt-5' >
       <Image
-        src="/logo.png"
+        src="/CNMS.jpg"
         height="40"
         width="40"
         alt="Logo-light"
         className="dark:hidden"
       />
       <Image
-        src="/logo-dark.png"
+        src="/Dark-hero1.png"
         height="40"
         width="40"
         alt="Logo-dark"
         className="hidden dark:block"
       />
-      <p className={cn("font-semibold", font.className)}>DocLinker</p>
+    <span><p className={cn("font-semibold", font.className)}>CloudNote Pro</p></span>
     </div>
   )
 }

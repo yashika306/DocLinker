@@ -26,11 +26,11 @@ const Documentspage = () => {
       />
     
     <h2 className="text-lg font-medium">
-      Welcome to {user?.firstName}&apos;s DocLinker
+      Welcome to {user?.firstName}&apos;s CloudNote Pro
     </h2>
     <Button>
       <PlusCircle className='h-4 w-4 mr-2'/>
-      Create a Document
+      Create a New note
     </Button>
     </div>
   )

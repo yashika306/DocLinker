@@ -30,14 +30,14 @@ const Navbar = () => {
                             </Button>
                         </SignInButton>
                         <SignInButton mode="modal">
-                            <Button size="sm">Get DocLinker free</Button>
+                            <Button size="sm">Get CloudNote Pro free</Button>
                         </SignInButton>
                     </>
                 )}
                 {isAuthenticated && !isLoading && (
                     <>
                         <Button variant="ghost" size="sm" asChild>
-                            <Link href="/documents">Enter DocLinker</Link>
+                            <Link href="/documents">Enter CloudNote Pro</Link>
                         </Button>
                         <UserButton afterSignOutUrl="/" />
                     </>

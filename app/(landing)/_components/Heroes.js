@@ -7,19 +7,19 @@ const Heroes = () => {
       <div className='flex items-center'>
         <div className='relative w-[300px] h-[300px] sm:w-[350px] sm:h-[480px] md:w-[400px]'>
             <Image 
-            src ="/documents.png" 
+            src ="/CNMS.jpg" 
             fill 
             className="object-contain dark:hidden"
             alt="Documents"
             />
             <Image 
-            src ="/documents-dark.png" 
+            src ="/Dark-hero1.png" 
             fill 
             className="object-contain  hidden dark:block"
             alt="Documents"
             />
         </div>
-        <div className='relative w-[300px] h-[300px] sm:w-[350px] sm:h-[480px] md:w-[400px]'>
+        {/* <div className='relative w-[300px] h-[300px] sm:w-[350px] sm:h-[480px] md:w-[400px]'>
             <Image 
             src ="/reading.png" 
             fill 
@@ -32,7 +32,7 @@ const Heroes = () => {
             className="object-contain  hidden dark:block"
             alt="Reading"
             />
-        </div>
+        </div> */}
 
       </div>
     </div>
