@@ -10,9 +10,11 @@ import { useMediaQuery } from "usehooks-ts";
 import { useParams, usePathname, useRouter } from "next/navigation";
 import UserItem from "./UserItem";
 import Item  from "./Item";
+import { useSearch } from "@/hooks/use-search";
 
 const Navigation = () => {
   const router = useRouter();
+  const search = useSearch();
   const params = useParams();
   const pathname = usePathname();
   const isMobile = useMediaQuery("(max-width: 768px)");
@@ -121,7 +123,7 @@ const Navigation = () => {
         </div>
         <div>
         <UserItem />
-        <Item label="Search" icon={Search} isSearch />
+        <Item label="Search" icon={Search} isSearch onClick={search.onOpen}/>
         <Item label="Settings" icon={Settings} />
         <Item  label="New Page" icon={PlusCircle} />
         </div>
@@ -131,7 +133,17 @@ const Navigation = () => {
           className="opacity-0 group-hover/sidebar:opacity-100 transition cursor-ew-resize absolute h-full w-1 bg-primary/10 right-0 top-0"
         />
       </aside>
-      <div ref={navbarRef}></div>    
+      <div ref={navbarRef}>
+         <nav>
+          {
+            params.documentID ? (
+              <div></div>
+            ) : (
+              <nav></nav>
+            )
+          }
+          </nav>
+        </div>    
     </>
   );
 };
