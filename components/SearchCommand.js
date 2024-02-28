@@ -4,6 +4,7 @@ import React , { useEffect, useState } from "react";
 import { File } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/clerk-react";
+import { useSearch } from '@/hooks/use-search';
 
 import {
   CommandDialog,
@@ -13,7 +14,6 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import { useSearch } from "@/hooks/use-search";
 
 let tempdocs = [
     {
@@ -32,7 +32,6 @@ const SearchCommand = () => {
     const {user} = useUser();
     const router = useRouter();
     const [isMounted, setIsMounted] = useState(false);
-
     const toggle = useSearch((store) => store.toggle);
     const isOpen = useSearch((store) => store.isOpen);
     const onClose = useSearch((store) => store.onClose);
@@ -58,13 +57,13 @@ const SearchCommand = () => {
     };
 
   return (
-    <CommandDialog open={isOpen} onOpenchange={onClose}>
-     <CommandInput placeholder={`Search ${user?.fullName}'s Notion`}/>
+    <CommandDialog open={isOpen} onOpenChange={onClose}>
+     <CommandInput placeholder={`Search ${user?.fullName}'s Note`}/>
      <CommandList>
         <CommandEmpty>
             No results found.
         </CommandEmpty>
-        <CommandGroup heading="documents">
+        <CommandGroup heading="Documents">
             {tempdocs.map((document)=>(
                 <CommandItem
                 key ={document._id}

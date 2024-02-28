@@ -29,7 +29,8 @@ const Item = ({
     const ChevronIcon = expanded ? ChevronDown : ChevronRight;
 
   return (
-    <div
+    <div 
+    onClick={onClick}
     role="button"
       style={{
         paddingLeft: level ? `${level * 12 + 12}px` : "12px",

@@ -3,6 +3,7 @@ import './globals.css'
 
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ConvexClientProvider } from '@/components/providers/ConvexProvider';
+import ModalProvider from '@/components/providers/ModalProvider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,6 +39,7 @@ export default function RootLayout({ children }) {
             storageKey="DocLinker-theme"
           >
           {children}
+          <ModalProvider />
           </ThemeProvider>
         </ConvexClientProvider>
       </body>
