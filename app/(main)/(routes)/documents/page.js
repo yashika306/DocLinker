@@ -5,8 +5,22 @@ import Image from "next/image";
 import { useUser } from '@clerk/clerk-react';
 import { PlusCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import {useRouter} from "next/navigation";
+import { api } from "@/convex/_generated/api";
+import { useMutation } from "convex/react";
+
 const Documentspage = () => {
   const { user } = useUser();
+  const router = useRouter();
+
+
+  const create = useMutation(api.documents.create);
+
+  const onCreate = () => {
+    const promise = create({ title: "Untitled" }).then((documentId) =>
+      router.push(`/documents/${documentId}`)
+    );
+  }
 
   return (
     <div className="h-full flex flex-col items-center justify-center space-y-4">
@@ -28,7 +42,7 @@ const Documentspage = () => {
     <h2 className="text-lg font-medium">
       Welcome to {user?.firstName}&apos;s CloudNote Pro
     </h2>
-    <Button>
+    <Button onClick={onCreate}>
       <PlusCircle className='h-4 w-4 mr-2'/>
       Create a New note
     </Button>
