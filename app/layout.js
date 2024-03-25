@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { ConvexClientProvider } from '@/components/providers/ConvexProvider';
 import ModalProvider from '@/components/providers/ModalProvider';
+import { Toaster } from 'sonner';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -38,8 +39,10 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
             storageKey="DocLinker-theme"
           >
-          {children}
+          <Toaster position='bottom-center'/>
           <ModalProvider />
+          {children}
+
           </ThemeProvider>
         </ConvexClientProvider>
       </body>
