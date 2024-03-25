@@ -8,18 +8,22 @@ import { Button } from '@/components/ui/button';
 import {useRouter} from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { useMutation } from "convex/react";
+import { toast } from 'sonner';
 
 const Documentspage = () => {
   const { user } = useUser();
   const router = useRouter();
-
-
   const create = useMutation(api.documents.create);
 
   const onCreate = () => {
-    const promise = create({ title: "Untitled" }).then((documentId) =>
+    const promise = create({ title: "Untitled" }).then((documentId) =>{
       router.push(`/documents/${documentId}`)
-    );
+    });
+    toast.promise(promise,{
+      loading: "Creating a new node...",
+      success: "New note created!",
+      error: "Failed to create an new note",
+    })
   }
 
   return (

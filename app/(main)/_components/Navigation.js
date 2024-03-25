@@ -12,6 +12,11 @@ import UserItem from "./UserItem";
 import Item  from "./Item";
 import { useSearch } from "@/hooks/use-search";
 import { useSettings } from "@/hooks/use-settings";
+import { api } from "@/convex/_generated/api";
+import { useMutation } from "convex/react";
+import { toast } from 'sonner';
+import DocumentList from "./DocumentList";
+
 
 const Navigation = () => {
   const router = useRouter();
@@ -27,7 +32,8 @@ const Navigation = () => {
 
   const [isResetting, setIsResetting] = useState(false);
   const [isCollapsed, setIsCollapsed] = useState(isMobile);
- 
+  const create = useMutation(api.documents.create);
+
 
   useEffect(() => {
     if (isMobile) {
@@ -103,6 +109,17 @@ const Navigation = () => {
     }
   }
 
+  const onCreate = () => {
+    const promise = create({ title: "Untitled" }).then((documentId) =>{
+      router.push(`/documents/${documentId}`)
+    });
+    toast.promise(promise,{
+      loading: "Creating a new node...",
+      success: "New note created!",
+      error: "Failed to create an new note",
+    })
+  }
+
   return (
     <>
       <aside
@@ -127,8 +144,13 @@ const Navigation = () => {
         <UserItem />
         <Item label="Search" icon={Search} isSearch onClick={search.onOpen}/>
         <Item label="Settings" icon={Settings} onClick={settings.onOpen} />
-        <Item  label="New Page" icon={PlusCircle} />
+        <Item  label="New Page" icon={PlusCircle} onClick={onCreate}/>
         </div>
+        
+        <div classname="mt-4">
+          <DocumentList/>
+        </div>
+        
         <div
           onMouseDown={handleMouseDown}
           onClick={resetWidth}
